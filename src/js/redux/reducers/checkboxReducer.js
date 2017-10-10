@@ -3,10 +3,13 @@ const handleChangeReducer = (state = 0, action) => {
 
   switch (type) {
     case 'CHECKBOX_CHECKED':
-      return state + payload;
+
+      return state + payload.price;
 
     case 'CHECKBOX_UNCHECKED':
-      return state - payload;
+      
+      return state - payload.price;
+
 
     default:
       return state;

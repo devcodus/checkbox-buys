@@ -1,14 +1,20 @@
-export function addItemToCart(price){
+export function addItemToCart(price, name){
   return {
     type: 'CHECKBOX_CHECKED',
-    payload: price,
+    payload: {
+      price: price,
+      name: name,
+    }
   };
 }
 
-export function removeItemFromCart(price){
+export function removeItemFromCart(price, name){
   return {
     type: 'CHECKBOX_UNCHECKED',
-    payload: price,
+    payload: {
+      price: price,
+      name: name,
+    }
   };
 }
 

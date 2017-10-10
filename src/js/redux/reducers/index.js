@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import handleChangeReducer from './checkboxReducer';
-import cartReducer from './cartReducer';
+import buyCartReducer from './buyCartReducer';
+import listCartReducer from './listCartReducer';
 
 const appReducer = combineReducers({
   total: handleChangeReducer,
-  wallet: cartReducer,
+  wallet: buyCartReducer,
+  list: listCartReducer,
 
 })
 

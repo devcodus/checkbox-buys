@@ -1,4 +1,4 @@
-const cartReducer = (state = 9000, action) => {
+const buyCartReducer = (state = 9000, action) => {
   const { type, payload } = action;
   switch (type) {
     case 'CART_BOUGHT':
@@ -9,4 +9,4 @@ const cartReducer = (state = 9000, action) => {
   }
 };
 
-export default cartReducer;
+export default buyCartReducer;

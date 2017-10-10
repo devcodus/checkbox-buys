@@ -17,10 +17,10 @@ class CheckboxComponent extends Component {
   handleChange(event){
     // debugger;
     if(event.target.checked === true){
-      this.props.addItemToCart(+(event.target.id));
+      this.props.addItemToCart(+(event.target.value));
     }
     else if(event.target.checked === false){
-      this.props.removeItemFromCart(+(event.target.id));
+      this.props.removeItemFromCart(+(event.target.value));
     }
     else {
       return null;
@@ -47,29 +47,29 @@ class CheckboxComponent extends Component {
             <td>Add to Cart</td>
           </tr>
           <tr>
-            <td>Gangbuster</td>
+            <td>Gangbusters</td>
             <td>$300</td>
-            <td><input type='checkbox' id="300" onClick={this.handleChange} /></td>
+            <td><input type='checkbox' value="300" onClick={this.handleChange} /></td>
           </tr>
           <tr>
             <td>Sparta</td>
             <td>$300</td>
-            <td><input type='checkbox' id="300" onClick={this.handleChange} /></td>
+            <td><input type='checkbox' value="300" onClick={this.handleChange} /></td>
           </tr>
           <tr>
             <td>Cheif Keef</td>
             <td>$300</td>
-            <td><input type='checkbox' id="300" onClick={this.handleChange} /></td>
+            <td><input type='checkbox' value="300" onClick={this.handleChange} /></td>
           </tr>
           <tr>
             <td>Crayola</td>
-            <td>$300</td>
-            <td><input type='checkbox' id="300" onClick={this.handleChange} /></td>
+            <td>$6400</td>
+            <td><input type='checkbox' value="6400" onClick={this.handleChange} /></td>
           </tr>
           <tr>
             <td>Zune</td>
             <td>$300</td>
-            <td><input type='checkbox' id="300" onClick={this.handleChange} /></td>
+            <td><input type='checkbox' value="300" onClick={this.handleChange} /></td>
           </tr>
         </table>
         <button onClick={this.buyCart}>Buy</button>

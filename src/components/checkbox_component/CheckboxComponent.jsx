@@ -14,6 +14,7 @@ class CheckboxComponent extends Component {
   }
 
   handleChange(event){
+    // debugger;
     if(event.target.checked === true){
       // var list = this.state.list;
       this.props.addItemToCart(+(event.target.value), event.target.name);
@@ -32,19 +33,17 @@ class CheckboxComponent extends Component {
     }
   }
 
-  buyCart(){
+  buyCart(list){
     // debugger;
-    const { total, wallet, list, buyCart} = this.props;
-
-    if(wallet >= total){
-      buyCart(total, list);
+    if(this.props.wallet >= this.props.total){
+      this.props.buyCart(this.props.total, list);
 
       // var spoils = "";
       // spoils.push(this.state.list);
       // this.state.list.length = 0;
     }
     else {
-      return wallet;
+      return this.props.wallet;
     }
   }
 
@@ -90,7 +89,7 @@ class CheckboxComponent extends Component {
             <td><input name="Zune" type='checkbox' value="300" onClick={this.handleChange} /></td>
           </tr>
         </table>
-        <button onClick={this.buyCart}>Buy</button>
+        <button onClick={this.buyCart(list)}>Buy</button>
       </div>
     )
 

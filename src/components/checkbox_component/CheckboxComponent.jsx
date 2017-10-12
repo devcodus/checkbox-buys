@@ -14,7 +14,6 @@ class CheckboxComponent extends Component {
   }
 
   handleChange(event){
-    // debugger;
     if(event.target.checked === true){
       // var list = this.state.list;
       this.props.addItemToCart(+(event.target.value), event.target.name);
@@ -35,26 +34,29 @@ class CheckboxComponent extends Component {
 
   buyCart(){
     // debugger;
-    if(this.props.wallet >= this.props.total){
-      this.props.buyCart(this.props.total);
+    const { total, wallet, list, buyCart} = this.props;
+
+    if(wallet >= total){
+      buyCart(total, list);
+
       // var spoils = "";
       // spoils.push(this.state.list);
       // this.state.list.length = 0;
     }
     else {
-      return this.props.wallet;
+      return wallet;
     }
   }
 
   render(){
-    const { total, wallet, list} = this.props;
+    const { total, wallet, list, bought} = this.props;
     return(
       <div>
 
         <p>Cart Total:{total}</p>
         <p>Current Funds in Wallet: {wallet}</p>
         <p>Currently Selected Items: {list} </p>
-        <p>Items Bought: {} </p>
+        <p>Items Bought: {bought} </p>
 
         <table>
           <tr>
@@ -100,13 +102,14 @@ const mapStateToProps = (state) => ({
   total: state.total,
   wallet: state.wallet,
   list: state.list,
+  bought: state.bought,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   dispatch,
   addItemToCart: (price, name) => dispatch(addItemToCart(price, name)),
   removeItemFromCart: (price, name) => dispatch(removeItemFromCart(price, name)),
-  buyCart: total => dispatch(buyCart(total)),
+  buyCart: (total, list) => dispatch(buyCart(total, list)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(

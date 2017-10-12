@@ -18,9 +18,12 @@ export function removeItemFromCart(price, name){
   };
 }
 
-export function buyCart(total){
+export function buyCart(total, list){
   return {
     type: 'CART_BOUGHT',
-    payload: total,
-  }
+    payload: {
+      total: total,
+      list: list,
+    }
+  };
 }
